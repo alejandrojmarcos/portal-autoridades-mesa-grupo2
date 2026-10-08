@@ -1,10 +1,16 @@
 # Portal para Autoridades de Mesa - Prototipo
 
-Ingeniería de Software I  Grupo 2
+Ingeniería de Software I -  Grupo 2
 
-## Requisitos
 
-Node.js 18
+## prueba en vercel
+
+la web se deployó en vercel a traves de github actions.
+
+en esta url, no tiene autenticacion.
+
+https://portal-autoridades-mesa.vercel.app
+
 
 ## Cómo probar localmente? asi:
 
@@ -14,6 +20,10 @@ npm start
 ```
 
 Después deberia abrir en http://localhost:3000
+
+## Requisitos
+
+Node.js 18
 
 ## Qué partes tiene el prototipo
 
