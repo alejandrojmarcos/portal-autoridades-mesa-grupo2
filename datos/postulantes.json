@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "nombre": "María",
+    "apellido": "González",
+    "dni": "30111222",
+    "email": "maria.gonzalez@example.com",
+    "telefono": "11 5555-1234",
+    "distrito": "Ciudad Autónoma de Buenos Aires",
+    "antecedentes": "Fue autoridad de mesa en 2023.",
+    "charlasInteres": [1],
+    "estado": "Pendiente de verificación"
+  }
+]

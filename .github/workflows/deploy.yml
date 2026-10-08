@@ -1,0 +1,59 @@
+# Push a main: deploy a producción.
+name: Deploy a Vercel
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Verificar sintaxis del código
+        run: find src api public/js -name '*.js' -print0 | xargs -0 -n1 node --check
+
+      - name: Instalar Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Definir entorno
+        id: entorno
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            echo "nombre=production" >> "$GITHUB_OUTPUT"
+            echo "flag=--prod" >> "$GITHUB_OUTPUT"
+          else
+            echo "nombre=preview" >> "$GITHUB_OUTPUT"
+            echo "flag=" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Descargar configuración del proyecto
+        run: vercel pull --yes --environment=${{ steps.entorno.outputs.nombre }} --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Compilar
+        run: vercel build ${{ steps.entorno.outputs.flag }} --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Desplegar
+        run: |
+          url=$(vercel deploy --prebuilt ${{ steps.entorno.outputs.flag }} --token=${{ secrets.VERCEL_TOKEN }})
+          echo "### Desplegado en ${{ steps.entorno.outputs.nombre }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "$url" >> "$GITHUB_STEP_SUMMARY"
