@@ -6,10 +6,6 @@ function listarCharlas() {
   return [...charlasRepositorio.listarCharlas()].sort((a, b) => a.fecha.localeCompare(b.fecha));
 }
 
-function listarCharlasActivas() {
-  return listarCharlas().filter((charla) => charla.estado !== 'Cancelada');
-}
-
 function obtenerCharla(id) {
   const charla = charlasRepositorio.buscarCharlaPorId(id);
   if (!charla) {
@@ -31,4 +27,4 @@ async function buscarUbicacion(direccion) {
   return mapasServicio.obtenerUbicacion(direccion.trim());
 }
 
-module.exports = { listarCharlas, listarCharlasActivas, obtenerCharla, obtenerUbicacionDeCharla, buscarUbicacion };
+module.exports = { listarCharlas, obtenerUbicacionDeCharla, buscarUbicacion };

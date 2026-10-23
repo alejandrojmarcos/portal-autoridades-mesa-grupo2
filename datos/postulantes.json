@@ -7,8 +7,15 @@
     "email": "maria.gonzalez@example.com",
     "telefono": "11 5555-1234",
     "distrito": "Ciudad Autónoma de Buenos Aires",
-    "antecedentes": "Fue autoridad de mesa en 2023.",
-    "charlasInteres": [1],
+    "fechaNacimiento": "1985-04-12",
+    "direccionActual": "Av. Rivadavia 4500, CABA",
+    "autoridadPrevia": true,
+    "capacitacion": true,
+    "afiliado": false,
+    "partido": "",
+    "charlasInteres": [
+      1
+    ],
     "estado": "Pendiente de verificación"
   }
 ]

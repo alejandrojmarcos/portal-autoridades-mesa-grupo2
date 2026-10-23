@@ -1,4 +1,3 @@
 body { background: #f5f6f8; }
 #mapa { height: 320px; border-radius: 6px; }
 .list-group-item { cursor: pointer; }
-.cancelada { opacity: .55; }

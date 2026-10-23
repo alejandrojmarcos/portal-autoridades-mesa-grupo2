@@ -32,10 +32,10 @@ async function mostrarUbicacion(pedirUbicacion, titulo) {
 
 function mostrarDetalle(charla) {
   detalle.innerHTML = `
-    <h2 class="h5 mb-1 text-body">${charla.sede.nombre}</h2>
+    <h2 class="h5 mb-1 text-body">${charla.nombre}</h2>
+    <div class="text-body">${charla.tema}</div>
     <div class="text-body">${formatearFecha(charla.fecha)}, ${charla.horario} hs</div>
-    <div>${charla.sede.direccion}</div>
-    ${charla.estado === 'Cancelada' ? '' : `<a class="btn btn-primary btn-sm mt-2" href="registro.html?charla=${charla.id}">Postularme</a>`}`;
+    <div>${charla.sede.nombre} · ${charla.sede.direccion}</div>`;
   mostrarUbicacion(() => pedirApi(`/api/charlas/${charla.id}/ubicacion`), charla.sede.nombre);
 }
 
@@ -43,13 +43,9 @@ function agregarCharlaALista(charla) {
   const item = document.createElement('button');
   item.type = 'button';
   item.className = 'list-group-item list-group-item-action';
-  if (charla.estado === 'Cancelada') item.classList.add('cancelada');
   item.innerHTML = `
-    <div class="d-flex justify-content-between">
-      <strong>${charla.sede.nombre}</strong>
-      <span class="badge ${charla.estado === 'Cancelada' ? 'text-bg-secondary' : 'text-bg-success'}">${charla.estado}</span>
-    </div>
-    <small>${formatearFecha(charla.fecha)}, ${charla.horario} hs</small>`;
+    <strong>${charla.nombre}</strong><br>
+    <small>${charla.sede.nombre} · ${formatearFecha(charla.fecha)}, ${charla.horario} hs</small>`;
   item.addEventListener('click', () => {
     listaCharlas.querySelector('.active')?.classList.remove('active');
     item.classList.add('active');

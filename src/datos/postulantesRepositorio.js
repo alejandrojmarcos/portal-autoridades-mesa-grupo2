@@ -1,10 +1,6 @@
 // Los datos se cargan del JSON al iniciar y los nuevos registros quedan en memoria.
 const postulantes = require('../../datos/postulantes.json');
 
-function listarPostulantes() {
-  return postulantes;
-}
-
 function buscarPostulantePorDni(dni) {
   return postulantes.find((postulante) => postulante.dni === dni);
 }
@@ -15,4 +11,4 @@ function guardarPostulante(datos) {
   return postulante;
 }
 
-module.exports = { listarPostulantes, buscarPostulantePorDni, guardarPostulante };
+module.exports = { buscarPostulantePorDni, guardarPostulante };

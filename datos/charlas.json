@@ -1,42 +1,35 @@
 [
   {
     "id": 1,
+    "nombre": "Charla 1",
+    "tema": "Orientación para autoridades de mesa",
     "fecha": "2026-10-20",
     "horario": "18:00",
     "sede": {
       "nombre": "Centro Cultural San Martín",
       "direccion": "Sarmiento 1551, CABA"
-    },
-    "estado": "Informada"
+    }
   },
   {
     "id": 2,
+    "nombre": "Charla 2",
+    "tema": "Orientación para autoridades de mesa",
     "fecha": "2026-10-27",
     "horario": "10:30",
     "sede": {
       "nombre": "Facultad de Derecho (UBA)",
       "direccion": "Figueroa Alcorta 2263, CABA"
-    },
-    "estado": "Informada"
+    }
   },
   {
     "id": 3,
+    "nombre": "Charla 3",
+    "tema": "Orientación para autoridades de mesa",
     "fecha": "2026-11-05",
     "horario": "19:00",
     "sede": {
       "nombre": "Biblioteca Nacional",
       "direccion": "Agüero 2502, CABA"
-    },
-    "estado": "Informada"
-  },
-  {
-    "id": 4,
-    "fecha": "2026-11-12",
-    "horario": "17:00",
-    "sede": {
-      "nombre": "Sede Comunal 4",
-      "direccion": "Av. Del Barco Centenera 2906, CABA"
-    },
-    "estado": "Cancelada"
+    }
   }
 ]

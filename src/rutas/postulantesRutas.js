@@ -3,10 +3,6 @@ const postulantesServicio = require('../servicios/postulantesServicio');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.json(postulantesServicio.listarPostulantes());
-});
-
 router.get('/formulario', (req, res) => {
   res.json(postulantesServicio.obtenerDatosFormulario());
 });
