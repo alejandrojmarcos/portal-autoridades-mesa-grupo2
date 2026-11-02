@@ -1,7 +1,21 @@
 {
   "framework": null,
   "outputDirectory": "public",
-  "regions": ["gru1"],
-  "rewrites": [{ "source": "/api/(.*)", "destination": "/api/index" }],
-  "git": { "deploymentEnabled": false }
+  "regions": [
+    "gru1"
+  ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index"
+    }
+  ],
+  "git": {
+    "deploymentEnabled": false
+  },
+  "functions": {
+    "api/index.js": {
+      "maxDuration": 30
+    }
+  }
 }
